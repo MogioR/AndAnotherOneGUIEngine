@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\GuiModule">
+      <UniqueIdentifier>{34efedf8-a019-4727-87b6-fbcb6ec6844d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GuiModule">
+      <UniqueIdentifier>{7b6ce048-154b-45dc-ae51-53256c0c1b9d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceStorage.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Gui.cpp">
+      <Filter>Исходные файлы\GuiModule</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiManager.cpp">
+      <Filter>Исходные файлы\GuiModule</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicButton.cpp">
+      <Filter>Исходные файлы\GuiModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Slider.cpp">
+      <Filter>Исходные файлы\GuiModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Form.cpp">
+      <Filter>Исходные файлы\GuiModule</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayedText.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="TextInput.cpp">
+      <Filter>Исходные файлы\GuiModule</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ResourceStorage.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Gui.h">
+      <Filter>Файлы заголовков\GuiModule</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicButton.h">
+      <Filter>Файлы заголовков\GuiModule</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiManager.h">
+      <Filter>Файлы заголовков\GuiModule</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider.h">
+      <Filter>Файлы заголовков\GuiModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Form.h">
+      <Filter>Файлы заголовков\GuiModule</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayedText.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="TextInput.h">
+      <Filter>Файлы заголовков\GuiModule</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
