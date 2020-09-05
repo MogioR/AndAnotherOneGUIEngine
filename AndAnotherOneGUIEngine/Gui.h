@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <iostream>
+
 using namespace sf;
 
 class Gui
@@ -16,7 +17,8 @@ public:
 	FloatRect getRect();
 	virtual void setPosition(float x, float y) = 0;
 	virtual void setSize(float left, float top) = 0;
-
+	virtual void setVisible(bool a);
+	virtual std::string toJson();
 protected:
 	FloatRect rect;
 

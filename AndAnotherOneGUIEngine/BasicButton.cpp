@@ -62,6 +62,12 @@ BasicButton::BasicButton(std::string id, std::string text, FloatRect rect, std::
 	this->text.setFillColor(textAndBorder);
 }
 
+std::string BasicButton::toJson()
+{
+
+	return std::string();
+}
+
 
 void BasicButton::correctSizeText()
 {

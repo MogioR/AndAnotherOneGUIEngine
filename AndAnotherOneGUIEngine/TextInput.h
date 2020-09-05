@@ -6,6 +6,7 @@ class TextInput : public Gui, public DrawableGui, public WritableGui, public Cov
 public:
 	void setTextFillColor(sf::Color color);
 	TextInput(std::string id, std::string tip, FloatRect rect, std::string onCover, Font& f, bool visible);
+	std::string getString();
 
 protected:
 	void correctSizeText();

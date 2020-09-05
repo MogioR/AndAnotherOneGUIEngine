@@ -23,6 +23,14 @@ FloatRect Gui::getRect()
 {
 	return rect;
 }
+void Gui::setVisible(bool a)
+{
+	isVisible = a;
+}
+std::string Gui::toJson()
+{
+	return std::string();
+}
 ClicableGui::ClicableGui(std::string onClick) :
 	onClick(onClick), clicked(0) {}
 

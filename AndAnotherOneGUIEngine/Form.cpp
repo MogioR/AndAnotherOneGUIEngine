@@ -16,6 +16,7 @@ void Form::onEvent(Event e, std::map<std::string, std::function<void(Gui * gui)>
 		Form* form = dynamic_cast<Form*>(g);
 		if (form != NULL)
 		{
+			if(e.type != sf::Event::KeyPressed && e.type != sf::Event::TextEntered)
 			form->onEvent(e,commands,isWriting,targetTextInput);
 		}
 	}
@@ -24,6 +25,7 @@ void Form::onEvent(Event e, std::map<std::string, std::function<void(Gui * gui)>
 	{
 		if (e.mouseButton.button == Mouse::Left)
 		{
+
 			FloatRect mouseRect(e.mouseButton.x, e.mouseButton.y, 1, 1);
 
 			if (isWriting && !mouseRect.intersects((*targetTextInput)->getRect()))
@@ -39,8 +41,8 @@ void Form::onEvent(Event e, std::map<std::string, std::function<void(Gui * gui)>
 					ClicableGui* clicable = dynamic_cast<ClicableGui*>(g);
 					if (clicable != NULL)
 					{
-						commands[clicable->onClick](g);
 						clicable->clicked = 1;
+						commands[clicable->onClick](g);
 					}
 
 					WritableGui* writable = dynamic_cast<WritableGui*>(g);
@@ -127,6 +129,56 @@ void Form::onEvent(Event e, std::map<std::string, std::function<void(Gui * gui)>
 	}
 }
 
+void Form::createButton(std::string id, std::string text, FloatRect rect, std::string onClick, std::string onCover, Font& f, bool visible = true)
+{
+	gui.push_back(new BasicButton(id, text, rect, onClick, onCover, f, visible));
+}
+
+void Form::createButton(std::string id, std::string text, FloatRect rect, std::string onClick, std::string onCover, Color backGround, Color textAndBorder, Font& f, bool visible = true)
+{
+	gui.push_back(new BasicButton(id, text, rect, onClick, onCover, backGround, textAndBorder, f, visible));
+}
+
+void Form::createTextInput(std::string id, std::string tip, FloatRect rect, std::string onCover, Font& f, bool visible)
+{
+	gui.push_back(new BasicTextInput(id, tip, rect, onCover, f, visible));
+}
+
+void Form::createSlider(std::string id, float min, float max, float value, FloatRect rect, std::string onUpdate, bool visible)
+{
+	gui.push_back(new BasicSlider(id, min, max, value, rect, onUpdate, visible));
+}
+
+void Form::createDisplayText(std::string id, FloatRect rect, std::string text, Font& f, bool visible)
+{
+	gui.push_back(new DisplayedText(id, rect, text,f, visible));
+}
+
+void Form::createForm(std::string id, FloatRect rect, bool visible)
+{
+	gui.push_back(new Form(id, rect, visible));
+}
+
+Form* Form::getForm(std::string id)
+{
+	for (auto *g : gui)
+	{
+		if (g->getId() == id && dynamic_cast<Form*>(g) != NULL)
+			return dynamic_cast<Form*>(g);
+	}
+	return nullptr;
+}
+
+Gui* Form::getGui(std::string id)
+{
+	for (auto* g : gui)
+	{
+		if (g->getId() == id)
+			return g;
+	}
+	return nullptr;
+}
+
 void Form::draw(RenderWindow& w)
 {
 	for (auto g : gui)
@@ -157,6 +209,14 @@ void Form::update(float gameTime, Vector2i mouse)
 			if (drawing != NULL)
 				drawing->update(gameTime, mouse);
 		}
+}
+
+void Form::setVisible(bool a)
+{
+	for (auto g : gui)
+	{
+		g->setVisible(a);
+	}
 }
 
 Form::Form(std::string id, FloatRect rect, bool visible) :

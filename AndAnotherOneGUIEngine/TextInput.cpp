@@ -21,6 +21,11 @@ TextInput::TextInput(std::string id, std::string tip, FloatRect rect, std::strin
 	text.setOrigin(this->tip.getOrigin());
 }
 
+std::string  TextInput::getString()
+{
+	return text.getString();
+}
+
 void TextInput::correctSizeText()
 {
 	FloatRect textRect = this->tip.getLocalBounds();

@@ -17,6 +17,8 @@ public:
 	BasicButton(std::string id, std::string text, FloatRect rect, std::string onClick, std::string onCover, Font& f, bool visible);
 	BasicButton(std::string id, std::string text, FloatRect rect, std::string onClick, std::string onCover, Color backGround, Color textAndBorder, Font& f, bool visible);
 	
+	std::string toJson();
+
 protected:
 	void correctSizeText();
 	Text text;

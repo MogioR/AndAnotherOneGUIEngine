@@ -48,10 +48,10 @@
     <ClCompile Include="Form.cpp">
       <Filter>Исходные файлы\GuiModule</Filter>
     </ClCompile>
-    <ClCompile Include="DisplayedText.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="TextInput.cpp">
+      <Filter>Исходные файлы\GuiModule</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayedText.cpp">
       <Filter>Исходные файлы\GuiModule</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,10 +80,10 @@
     <ClInclude Include="Form.h">
       <Filter>Файлы заголовков\GuiModule</Filter>
     </ClInclude>
-    <ClInclude Include="DisplayedText.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="TextInput.h">
+      <Filter>Файлы заголовков\GuiModule</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayedText.h">
       <Filter>Файлы заголовков\GuiModule</Filter>
     </ClInclude>
   </ItemGroup>
