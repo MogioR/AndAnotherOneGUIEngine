@@ -36,7 +36,7 @@ void Form::onEvent(Event e, std::map<std::string, std::function<void(Gui * gui)>
 			}
 
 			for (auto g : gui)
-				if (g->isVisible && g->getRect().intersects(mouseRect))
+				if (g->isVisible() && g->getRect().intersects(mouseRect))
 				{
 					ClicableGui* clicable = dynamic_cast<ClicableGui*>(g);
 					if (clicable != NULL)
@@ -69,7 +69,7 @@ void Form::onEvent(Event e, std::map<std::string, std::function<void(Gui * gui)>
 		FloatRect mouseRect(e.mouseMove.x, e.mouseMove.y, 1, 1);
 
 		for (auto g : gui)
-			if (g->isVisible)
+			if (g->isVisible())
 			{
 				CoverableGui* coverable = dynamic_cast<CoverableGui*>(g);
 
@@ -116,7 +116,7 @@ void Form::onEvent(Event e, std::map<std::string, std::function<void(Gui * gui)>
 		if (e.mouseButton.button == Mouse::Left)
 		{
 			for (auto g : gui)
-				if (g->isVisible)
+				if (g->isVisible())
 				{
 					ClicableGui* clicable = dynamic_cast<ClicableGui*>(g);
 					if (clicable != NULL)
@@ -159,6 +159,19 @@ void Form::createForm(std::string id, FloatRect rect, bool visible)
 	gui.push_back(new Form(id, rect, visible));
 }
 
+void Form::createGuiByJson(std::string id, std::string in, Font &f)
+{
+	json j = json::parse(in);
+
+	if (j.find("type") != j.end())
+	{
+		if (j["type"] == "basic_button")
+		{
+			gui.push_back(new BasicButton(id, j["text_string"], FloatRect(j["rect_left"], j["rect_top"], j["rect_width"], j["rect_height"]), j["on_click"], j["on_cower"], j["bg_color"], j["text_color"], f, j["visible"]));
+		}
+	}
+}
+
 Form* Form::getForm(std::string id)
 {
 	for (auto *g : gui)
@@ -183,7 +196,7 @@ void Form::draw(RenderWindow& w)
 {
 	for (auto g : gui)
 	{
-		if (g->isVisible)
+		if (g->isVisible())
 		{
 			Form* form = dynamic_cast<Form*>(g);
 			if (form != NULL)
@@ -199,7 +212,7 @@ void Form::draw(RenderWindow& w)
 void Form::update(float gameTime, Vector2i mouse)
 {
 	for (auto g : gui)
-		if (g->isVisible)
+		if (g->isVisible())
 		{
 			Form* form = dynamic_cast<Form*>(g);
 			if (form != NULL)

@@ -12,13 +12,11 @@ void testFunc(Gui *g)
     BasicButton* cb = static_cast<BasicButton*>(g);
     if (cb->clicked)
     {
-
         std::cout << "Click" << std::endl;
         gm.guiManager.mainForm.getForm("login_form")->setVisible(0);
         dynamic_cast<DisplayedText*>(gm.guiManager.mainForm.getForm("main_form")->getGui("welcome_text"))->setText("Hello mr. " + dynamic_cast<TextInput*>(gm.guiManager.mainForm.getForm("login_form")->getGui("login_textbox"))->getString() + "!");
         gm.guiManager.mainForm.getForm("main_form")->setVisible(1);
     }
-
 }
 void testFunc1(Gui* g)
 {
@@ -79,6 +77,10 @@ int main()
 
     gm.guiManager.mainForm.createForm("main_form", FloatRect((1920 - 1000) / 2, (1080 - 600) / 2, 1000, 600), 1);
     gm.guiManager.mainForm.getForm("main_form")->createDisplayText("welcome_text", FloatRect((1920 - 1000) / 2 + 200, (1080 - 600) / 2 + 100, 0, 0), "", f, 1);
+    //std::string s = gm.guiManager.mainForm.getForm("login_form")->getGui("login_button")->to_json();
+    //std::cout << s;
+    //gm.guiManager.mainForm.createGuiByJson("test", s, f);
+    //gm.guiManager.mainForm.getGui("test")->setPosition(0,0);
     /*
     gm.guiManager.createButton("tesr","Loool",FloatRect(100,200,60,50), "test", "test1", f, 1);
     gm.guiManager.createButton("tesr2", "Loool", FloatRect(210, 200, 60, 50), "test", "test1", f, 1);

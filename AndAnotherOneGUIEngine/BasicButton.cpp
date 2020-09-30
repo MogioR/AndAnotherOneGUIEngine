@@ -17,8 +17,8 @@ void BasicButton::setPosition(float x, float y)
 	float _y = y - rect.top;
 	rect.left = x;
 	rect.top = y;
-	text.move(x, y);
-	shape.move(x, y);
+	text.move(_x, _y);
+	shape.move(_x, _y);
 }
 
 void BasicButton::setSize(float width, float height)
@@ -33,6 +33,24 @@ void BasicButton::setSize(float width, float height)
 void BasicButton::setFillColor(Color color)
 {
 	shape.setFillColor(color);
+}
+
+json BasicButton::to_json()
+{
+	json j;
+	j["type"] = "basic_button";
+	j["id"] = getId();
+	j["text_string"] = text.getString();
+	j["text_color"] = text.getFillColor().toInteger();
+	j["bg_color"] = shape.getFillColor().toInteger();
+	j["rect_left"] = rect.left;
+	j["rect_top"] = rect.top;
+	j["rect_width"] = rect.width;
+	j["rect_height"] = rect.height;
+	j["on_click"] = onClick;
+	j["on_cower"] = onCover;
+	j["visible"] = visible;
+	return j;
 }
 
 BasicButton::BasicButton(std::string id, std::string text, FloatRect rect, Font& f, bool visible = true) :
@@ -62,11 +80,8 @@ BasicButton::BasicButton(std::string id, std::string text, FloatRect rect, std::
 	this->text.setFillColor(textAndBorder);
 }
 
-std::string BasicButton::toJson()
-{
-
-	return std::string();
-}
+BasicButton::BasicButton(std::string id, std::string text, FloatRect rect, std::string onClick, std::string onCover, int backGround, int textAndBorder, Font& f, bool visible) :
+	BasicButton(id, text, rect, onClick, onCover, Color(backGround), Color(textAndBorder), f, visible) {};
 
 
 void BasicButton::correctSizeText()

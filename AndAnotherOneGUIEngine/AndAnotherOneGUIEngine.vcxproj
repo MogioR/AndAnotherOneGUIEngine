@@ -87,7 +87,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;SFML_DINAMIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\#C++ Lib\SFML-2.5.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\#C++ Lib\SFML-2.5.0\include;D:\play\jsonCpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,6 +152,7 @@
     <ClCompile Include="ResourceStorage.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="TextInput.cpp" />
+    <ClCompile Include="TransformManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicButton.h" />
@@ -161,9 +162,14 @@
     <ClInclude Include="Gui.h" />
     <ClInclude Include="GuiManager.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="ResourceStorage.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="TextInput.h" />
+    <ClInclude Include="TransformManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AndAnotherOneGUIEngine.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

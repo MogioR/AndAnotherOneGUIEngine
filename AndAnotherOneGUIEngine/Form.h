@@ -23,6 +23,8 @@ struct Form : public Gui
 	void createDisplayText(std::string id, FloatRect rect, std::string text, Font& f, bool visible);
 	void createForm(std::string id, FloatRect rect, bool visible);
 
+	void createGuiByJson(std::string id, std::string in, Font& f);
+
 	Form* getForm(std::string id);
 	Gui* getGui(std::string id);
 

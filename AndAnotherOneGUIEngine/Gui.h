@@ -2,13 +2,14 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <iostream>
+#include "nlohmann/json.hpp"
 
 using namespace sf;
 
 class Gui
 {
 public:
-	bool isVisible;
+	bool isVisible();
 
 	Gui(std::string id, FloatRect rect,  bool visible);
 	Vector2f getSize();
@@ -18,10 +19,11 @@ public:
 	virtual void setPosition(float x, float y) = 0;
 	virtual void setSize(float left, float top) = 0;
 	virtual void setVisible(bool a);
-	virtual std::string toJson();
+
+	//json to_json() {};
 protected:
 	FloatRect rect;
-
+	bool visible;
 private:
 	std::string id;
 };

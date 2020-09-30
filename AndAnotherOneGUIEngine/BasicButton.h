@@ -1,7 +1,8 @@
 #ifndef BASIC_BUTTON_H
 #define BASIC_BUTTON_H
-
 #include "Gui.h"
+using nlohmann::json;
+
 class BasicButton : public Gui, public DrawableGui, public ClicableGui, public CoverableGui
 {
 public:
@@ -13,11 +14,13 @@ public:
 	
 	void setFillColor(Color color);
 
+	json to_json();
+	void from_json();
+
 	BasicButton(std::string id, std::string text, FloatRect rect, Font& f, bool visible);
 	BasicButton(std::string id, std::string text, FloatRect rect, std::string onClick, std::string onCover, Font& f, bool visible);
 	BasicButton(std::string id, std::string text, FloatRect rect, std::string onClick, std::string onCover, Color backGround, Color textAndBorder, Font& f, bool visible);
-	
-	std::string toJson();
+	BasicButton(std::string id, std::string text, FloatRect rect, std::string onClick, std::string onCover, int backGround, int textAndBorder, Font& f, bool visible);
 
 protected:
 	void correctSizeText();

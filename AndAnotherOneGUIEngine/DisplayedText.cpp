@@ -19,7 +19,7 @@ void DisplayedText::update(float gameTime, Vector2i mouce)
 
 void DisplayedText::draw(sf::RenderWindow& w)
 {
-	if(isVisible)
+	if(isVisible())
 		w.draw(text);
 }
 

@@ -54,6 +54,9 @@
     <ClCompile Include="DisplayedText.cpp">
       <Filter>Исходные файлы\GuiModule</Filter>
     </ClCompile>
+    <ClCompile Include="TransformManager.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ResourceStorage.h">
@@ -86,5 +89,16 @@
     <ClInclude Include="DisplayedText.h">
       <Filter>Файлы заголовков\GuiModule</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformManager.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="AndAnotherOneGUIEngine.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

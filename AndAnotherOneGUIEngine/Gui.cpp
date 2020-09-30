@@ -1,8 +1,13 @@
 #pragma once
 #include "Gui.h"
 
+bool Gui::isVisible()
+{
+	return visible;
+}
+
 Gui::Gui(std::string id, FloatRect rect, bool isVisible = true) :
-	id(id), rect(rect), isVisible(isVisible) {}
+	id(id), rect(rect), visible(isVisible) {}
 
 Vector2f Gui::getSize()
 {
@@ -25,12 +30,9 @@ FloatRect Gui::getRect()
 }
 void Gui::setVisible(bool a)
 {
-	isVisible = a;
+	visible = a;
 }
-std::string Gui::toJson()
-{
-	return std::string();
-}
+
 ClicableGui::ClicableGui(std::string onClick) :
 	onClick(onClick), clicked(0) {}
 
